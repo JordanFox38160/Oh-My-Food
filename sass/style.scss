@@ -1,0 +1,220 @@
+/*COLOR*/
+$pink: #D561E6;
+
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background: white;
+    box-shadow: 1px 1px 5px rgb(179, 179, 179);
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    img {
+        width: 250px;
+    }
+}
+
+.localisation {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+
+    i {
+        padding: 1rem;
+    }
+
+    input {
+        font-weight: bold;
+        border-style: none;
+        background: none;
+        width: 97px;
+    }
+
+    ::placeholder {
+        color: black;
+    }
+
+}
+
+.information {
+    background: white;
+    width: 100%;
+    height: 270px;
+
+    div {
+        padding-bottom: 30px;
+        text-align: center;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 25px;
+    }
+
+    h1 {
+        font-size: 23px;
+        margin: 0;
+        padding-bottom: 10px;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    h2 {
+        margin: 0;
+        text-align: center;
+        font-size: 18px;
+        font-weight: lighter;
+        padding-bottom: 30px;
+    }
+
+}
+
+button {
+    width: 550px;
+    height: 55px;
+    border-radius: 50px;
+    border-style: none;
+    box-shadow: 1px 5px 10px rgb(185, 185, 185);
+    background: linear-gradient(164deg, rgba(235,115,218,1) 0%, rgb(166, 58, 255) 100%);
+
+    h3 {
+        color: white;
+        font-weight: bold;
+    }
+
+
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .nav> div {
+            display: flex;
+            width: 320px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 2px 3px rgb(173, 173, 173);
+            height: 80px;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            align-items: center;
+
+            i {
+                padding-left: 20px;
+                font-size: 22px;
+                color: gray;
+            }
+
+            .fa-store {
+                color: rgb(153, 0, 255);
+            }
+
+            h3 {
+                padding-left: 20px;
+                font-size: 18px;
+            }
+        }
+
+.cercle-violet {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(153, 0, 255);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 30px;
+    margin-left: -10px;
+}
+
+main {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(240, 240, 240);
+}
+
+@media (min-width: 1024px){
+    main {
+        align-items: center;
+    }
+}
+
+main > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 950px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 3px rgb(204, 204, 204);
+    height: 260px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+
+    h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+        padding-left: 10px;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 18px;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-left: 10px;
+        font-weight: lighter;
+    }
+
+
+    img {
+        border-radius: 20px 20px 0px 0px;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    padding: 0.1rem;
+    background-color:rgb(48, 48, 48)
+}
+
+footer li {
+    display: flex;
+    list-style: none;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: row;
+
+    li {
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+
+    i {
+        color: white;
+        font-size: 15px;
+    }
+
+    .fa-hands-helping {
+        font-size: 10px;
+    }
+}
