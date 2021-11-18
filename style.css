@@ -42,7 +42,7 @@ header img {
 .information {
   background: white;
   width: 100%;
-  height: 270px;
+  height: 220px;
 }
 .information div {
   padding-bottom: 30px;
@@ -66,6 +66,11 @@ header img {
   padding-bottom: 30px;
 }
 
+@media (max-width: 500px) {
+  .information {
+    height: 270px;
+  }
+}
 button {
   width: 250px;
   height: 55px;
@@ -82,6 +87,10 @@ button h3 {
 nav {
   padding-left: 20px;
   padding-right: 30px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .nav > div {
@@ -108,6 +117,18 @@ nav {
   font-size: 18px;
 }
 
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+    width: 100%;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav > div {
+    width: 100%;
+  }
+}
 .cercle-violet {
   font-size: 12px;
   font-weight: bold;
@@ -122,18 +143,27 @@ nav {
 }
 
 main {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
   background-color: #f0f0f0;
 }
 
+.liste-resto {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 1024px) {
-  main {
+  .liste-resto {
+    justify-content: center;
     align-items: center;
+    flex-direction: row;
+    gap: 3rem;
   }
 }
-main > div {
+.liste-resto > div {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -143,28 +173,47 @@ main > div {
   height: 260px;
   border-radius: 20px;
   margin-bottom: 20px;
+  animation-name: animation;
+  animation-duration: 700ms;
+  animation-delay: 0ms;
+  animation-timing-function: ease-in-out;
+  transform: scale(1);
+  transition: transform 400ms;
 }
-main > div h3 {
+.liste-resto > div:hover {
+  transform: scale(1.03);
+}
+@keyframes animation {
+  0% {
+    transform: translateY(5vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.liste-resto > div h3 {
   font-size: 20px;
   margin-bottom: 5px;
   margin-top: 10px;
   padding-left: 10px;
   font-weight: bold;
 }
-main > div h4 {
+.liste-resto > div h4 {
   font-size: 18px;
   margin-bottom: 0;
   margin-top: 0;
   padding-left: 10px;
   font-weight: lighter;
 }
-main > div img {
+.liste-resto > div img {
   border-radius: 20px 20px 0px 0px;
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
-main > div a {
+.liste-resto > div a {
   text-decoration: none;
   color: black;
 }
@@ -176,7 +225,16 @@ footer {
   background-color: #303030;
 }
 
-footer li {
+h5 {
+  font-family: "Shrikhand", cursive;
+  font-weight: lighter;
+  font-size: 20px;
+  margin: 0;
+  padding-bottom: 10px;
+  color: white;
+}
+
+li {
   display: flex;
   list-style: none;
   padding-bottom: 10px;

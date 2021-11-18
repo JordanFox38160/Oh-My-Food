@@ -38,7 +38,7 @@ header {
 .container-principal {
     padding-bottom: 10px;
 
-    img {
+    #image-fond {
         object-fit: cover;
         width: 100%;
         position: relative;
@@ -46,8 +46,8 @@ header {
     }
 
     .detail {
-        position: absolute;
         width: 100%;
+        position: absolute;
         margin-top: -30px;
         height: auto;
         border-radius: 30px;
@@ -75,8 +75,9 @@ header {
 }
 
 .plats {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
 
     h3 {
         font-size: 16px;
@@ -94,11 +95,30 @@ header {
     article {
         width: 100%;
         height: 65px;
+        max-width: 1050px;
         margin-bottom: 10px;
         border-radius: 15px;
         background-color: rgb(255, 255, 255);
         box-shadow: 1px 1px 5px rgb(202, 202, 202);
-
+        animation-name: animation;
+        animation-duration: 700ms;
+        animation-delay: 0ms;
+        animation-timing-function: ease-in-out;
+        transform: scale(1);
+        transition: transform 400ms;
+        &:hover {
+            transform: scale(1.01);
+        }
+        @keyframes animation {
+        0%{
+            transform: translateY(5vh);
+            opacity: 0;
+            }
+            100%{
+            transform: translateY(0px);
+            opacity: 1;
+            }
+        }
         >div {
             height: 60px;
             padding-left: 15px;
@@ -128,7 +148,14 @@ header {
     }
 }
 
+@media (min-width: 500px){
+    .plats {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+}
 
 .bouton {
     display: flex;
@@ -143,10 +170,17 @@ header {
         border-style: none;
         box-shadow: 1px 5px 10px rgb(185, 185, 185);
         background: linear-gradient(164deg, rgba(235,115,218,1) 0%, rgb(166, 58, 255) 100%);
+        transform: scale(1);
+        transition-property: transform;
+        transition-duration: 400ms;
+        &:hover {
+            transform: scale(1.10);
+        }
 
         h3 {
             color: white;
             font-weight: bold;
+            margin: 0;
         }
     }
 
@@ -156,18 +190,28 @@ header {
 footer {
     width: 100%;
     height: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     background-color:rgb(48, 48, 48)
 }
-     li {
+    li {
     display: flex;
     list-style: none;
     padding-bottom: 10px;
     color: white;
 }
+    ul {
+        margin: 0;
+    }
 
-
+    h2 {
+        font-family: 'Shrikhand', cursive;
+        font-weight: lighter;
+        font-size: 20px;
+        margin: 0;
+        padding-bottom: 10px;
+        color: white;
+    }
 .footer-logo {
     display: flex;
     flex-direction: row;

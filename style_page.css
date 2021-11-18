@@ -36,15 +36,15 @@ header a {
 .container-principal {
   padding-bottom: 10px;
 }
-.container-principal img {
+.container-principal #image-fond {
   object-fit: cover;
   width: 100%;
   position: relative;
   max-height: 200px;
 }
 .container-principal .detail {
-  position: absolute;
   width: 100%;
+  position: absolute;
   margin-top: -30px;
   height: auto;
   border-radius: 30px;
@@ -68,8 +68,9 @@ header a {
 }
 
 .plats {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
 }
 .plats h3 {
   font-size: 16px;
@@ -85,10 +86,30 @@ header a {
 .plats article {
   width: 100%;
   height: 65px;
+  max-width: 1050px;
   margin-bottom: 10px;
   border-radius: 15px;
   background-color: white;
   box-shadow: 1px 1px 5px #cacaca;
+  animation-name: animation;
+  animation-duration: 700ms;
+  animation-delay: 0ms;
+  animation-timing-function: ease-in-out;
+  transform: scale(1);
+  transition: transform 400ms;
+}
+.plats article:hover {
+  transform: scale(1.01);
+}
+@keyframes animation {
+  0% {
+    transform: translateY(5vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 .plats article > div {
   height: 60px;
@@ -114,6 +135,13 @@ header a {
   justify-content: space-between;
 }
 
+@media (min-width: 500px) {
+  .plats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .bouton {
   display: flex;
   justify-content: center;
@@ -127,23 +155,43 @@ header a {
   border-style: none;
   box-shadow: 1px 5px 10px #b9b9b9;
   background: linear-gradient(164deg, #eb73da 0%, #a63aff 100%);
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 400ms;
+}
+.bouton button:hover {
+  transform: scale(1.1);
 }
 .bouton button h3 {
   color: white;
   font-weight: bold;
+  margin: 0;
 }
 
 footer {
   width: 100%;
   height: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   background-color: #303030;
 }
 
 li {
   display: flex;
   list-style: none;
+  padding-bottom: 10px;
+  color: white;
+}
+
+ul {
+  margin: 0;
+}
+
+h2 {
+  font-family: "Shrikhand", cursive;
+  font-weight: lighter;
+  font-size: 20px;
+  margin: 0;
   padding-bottom: 10px;
   color: white;
 }
