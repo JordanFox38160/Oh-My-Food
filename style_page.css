@@ -1,3 +1,4 @@
+/*Var Color*/
 body {
   background-color: white;
   margin: 0;
@@ -60,17 +61,28 @@ header a {
   padding-bottom: 10px;
   justify-content: space-between;
 }
-.titre i {
-  font-size: 25px;
+.titre .coeur-transparant {
+  font-size: 28px;
 }
-.titre i:active {
-  background-color: red;
+.titre .coeur-violet {
+  visibility: hidden;
+  font-size: 24px;
+  position: absolute;
+  top: 25px;
+  right: 37px;
+}
+.titre .coeur:hover .coeur-violet {
+  visibility: visible;
+  background: linear-gradient(164deg, #eb73da 0%, #a63aff 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .plats {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .plats h3 {
   font-size: 16px;
@@ -85,25 +97,28 @@ header a {
 }
 .plats article {
   width: 100%;
-  height: 65px;
+  height: auto;
   max-width: 1050px;
   margin-bottom: 10px;
   border-radius: 15px;
   background-color: white;
   box-shadow: 1px 1px 5px #cacaca;
-  animation-name: animation;
+  animation-name: zoom;
   animation-duration: 700ms;
   animation-delay: 0ms;
   animation-timing-function: ease-in-out;
   transform: scale(1);
-  transition: transform 400ms;
+  transition: transform 100ms;
 }
 .plats article:hover {
-  transform: scale(1.01);
+  transform: scale(1.02);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-@keyframes animation {
+@keyframes zoom {
   0% {
-    transform: translateY(5vh);
+    transform: translateY(3vh);
     opacity: 0;
   }
   100% {
@@ -112,11 +127,25 @@ header a {
   }
 }
 .plats article > div {
-  height: 60px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 15px;
+  overflow: hidden;
+}
+.plats article > div:hover .check {
+  margin-right: 0;
+}
+.plats article > div:hover .check i {
+  animation-name: slide;
+  animation-duration: 700ms;
+}
+@keyframes slide {
+  0% {
+    margin-right: -30px;
+    transform: rotateZ(40deg);
+  }
+  100% {
+    margin-right: 0px;
+    transform: rotateZ(360deg);
+    opacity: 1;
+  }
 }
 .plats article h3 {
   font-size: 17px;
@@ -128,11 +157,51 @@ header a {
   margin: 0;
   font-weight: normal;
 }
-.plats article .composition-prix {
+.plats article h5 {
+  margin-left: auto;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+.plats article .description {
   display: flex;
-  height: 25px;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+.plats article .titre-plats {
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.plats article .titre-plats h3 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.plats article .titre-plats h4 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.plats article .composition-prix {
+  display: flex;
+  flex-direction: row;
+  height: 25px;
+  align-items: center;
+}
+.plats article .check {
+  background-color: #99E2D0;
+  padding-top: 23px;
+  padding-bottom: 23px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: -4.1rem;
+  transition-duration: 300ms;
+}
+.plats article .check i {
+  font-size: 25px;
+  color: white;
 }
 
 @media (min-width: 500px) {
@@ -156,11 +225,11 @@ header a {
   box-shadow: 1px 5px 10px #b9b9b9;
   background: linear-gradient(164deg, #eb73da 0%, #a63aff 100%);
   transform: scale(1);
-  transition-property: transform;
-  transition-duration: 400ms;
+  transition: transform 400ms;
 }
 .bouton button:hover {
-  transform: scale(1.1);
+  background: linear-gradient(164deg, #ff7beb 0%, #910bff 100%);
+  transform: scale(1.03);
 }
 .bouton button h3 {
   color: white;

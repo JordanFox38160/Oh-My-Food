@@ -1,3 +1,7 @@
+/*Var Color*/
+$green: #00ff88;
+$gray: #eeeeee;
+
 body {
     background-color: rgb(255, 255, 255);
     margin: 0;
@@ -51,7 +55,7 @@ header {
         margin-top: -30px;
         height: auto;
         border-radius: 30px;
-        background-color: rgb(238, 238, 238);
+        background-color: $gray;
     }
 }
 
@@ -64,20 +68,33 @@ header {
     padding-bottom: 10px;
     justify-content: space-between;
 
-    i {
-        font-size: 25px;
+    .coeur-transparant  {
+        font-size: 28px;
     }
 
-    i:active {
-        background-color: red;
+    .coeur-violet  {
+        visibility: hidden;
+        font-size: 24px;
+        position: absolute;
+        top: 25px;
+        right: 37px;
     }
 
+    .coeur:hover {
+        .coeur-violet{
+            visibility: visible;
+            background: linear-gradient(164deg, rgba(235,115,218,1) 0%, rgb(166, 58, 255) 100%);
+            -webkit-text-fill-color:transparent;
+            -webkit-background-clip: text;
+        }
+    }
 }
 
 .plats {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
 
     h3 {
         font-size: 16px;
@@ -88,30 +105,34 @@ header {
     .trait-soustexte {
         width: 40px;
         height: 3px;
-        background-color: rgb(0, 255, 136);
+        background-color: $green;
         margin-bottom: 20px;
     }
 
     article {
         width: 100%;
-        height: 65px;
+        height: auto;
         max-width: 1050px;
         margin-bottom: 10px;
         border-radius: 15px;
         background-color: rgb(255, 255, 255);
         box-shadow: 1px 1px 5px rgb(202, 202, 202);
-        animation-name: animation;
+        animation-name: zoom;
         animation-duration: 700ms;
         animation-delay: 0ms;
         animation-timing-function: ease-in-out;
         transform: scale(1);
-        transition: transform 400ms;
+        transition: transform 100ms;
         &:hover {
-            transform: scale(1.01);
+            transform: scale(1.02);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
-        @keyframes animation {
+
+        @keyframes zoom {
         0%{
-            transform: translateY(5vh);
+            transform: translateY(3vh);
             opacity: 0;
             }
             100%{
@@ -119,12 +140,30 @@ header {
             opacity: 1;
             }
         }
+
         >div {
-            height: 60px;
-            padding-left: 15px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-right: 15px;
+            overflow: hidden;
+        }
+
+        >div:hover .check {
+            margin-right: 0;
+
+            i {
+                animation-name: slide;
+                animation-duration: 700ms;
+            }
+            @keyframes slide {
+                0%{
+                    margin-right: -30px;
+                    transform: rotateZ(40deg)
+                    }
+                    100%{
+                    margin-right: 0px;
+                    transform: rotateZ(360deg);
+                    opacity: 1;
+                    }
+                }
+
         }
 
         h3 {
@@ -139,22 +178,67 @@ header {
             font-weight: normal;
         }
 
-        .composition-prix {
+        h5 {
+            margin-left: auto;
+            padding-right: 20px;
+            padding-top: 20px;
+        }
+
+        .description {
             display: flex;
-            height: 25px;
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
         }
-    }
-}
 
+        .titre-plats {
+            padding-top: 15px;
+            padding-left: 20px;
+            padding-bottom: 15px;
+            overflow: hidden;
+            white-space: nowrap;
+
+            h3 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            h4 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        .composition-prix {
+            display: flex;
+            flex-direction: row;
+            height: 25px;
+            align-items: center;
+
+        }
+        .check {
+            background-color: #99E2D0;
+            padding-top: 23px;
+            padding-bottom: 23px;
+            padding-right: 20px;
+            padding-left: 20px;
+            border-radius: 0px 15px 15px 0px;
+            margin-right: -4.1rem;
+            transition-duration: 300ms;
+            i {
+                font-size: 25px;
+                color: white;
+                }
+            }
+        }
+    }
 @media (min-width: 500px){
     .plats {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
 
+    }
 }
 
 .bouton {
@@ -171,10 +255,10 @@ header {
         box-shadow: 1px 5px 10px rgb(185, 185, 185);
         background: linear-gradient(164deg, rgba(235,115,218,1) 0%, rgb(166, 58, 255) 100%);
         transform: scale(1);
-        transition-property: transform;
-        transition-duration: 400ms;
+        transition: transform 400ms;
         &:hover {
-            transform: scale(1.10);
+            background: linear-gradient(164deg, rgb(255, 123, 235) 0%, rgb(145, 11, 255) 100%);
+            transform: scale(1.03);
         }
 
         h3 {
@@ -188,17 +272,17 @@ header {
 
 
 footer {
-    width: 100%;
-    height: auto;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    background-color:rgb(48, 48, 48)
-}
+        width: 100%;
+        height: auto;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        background-color:rgb(48, 48, 48)
+    }
     li {
-    display: flex;
-    list-style: none;
-    padding-bottom: 10px;
-    color: white;
+        display: flex;
+        list-style: none;
+        padding-bottom: 10px;
+        color: white;
 }
     ul {
         margin: 0;
@@ -212,6 +296,7 @@ footer {
         padding-bottom: 10px;
         color: white;
     }
+
 .footer-logo {
     display: flex;
     flex-direction: row;
